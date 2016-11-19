@@ -1,1 +1,1 @@
-# A compiler for the MiniJava language implemented in Java. In addition to the default grammar, support for 'enum' declarations has been added. 
+#### A compiler for the MiniJava language implemented in Java. In addition to the default grammar, support for 'enum' declarations has been added. 
