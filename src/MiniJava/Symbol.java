@@ -8,6 +8,29 @@ public class Symbol {
     private int parameterListIdentifier = -1;
     private boolean hasBeenInitialized = false;
 
+    public Symbol(String name, boolean isField) {
+        this.name = name;
+        this.isField = isField;
+    }
+
+    public Symbol(String name, Klass type, boolean isField) {
+        this(name, isField);
+        this.type = type;
+    }
+
+    public Klass getType() {
+        return type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String toString() {
+        if (type != null) return '<' + getName() + ":" + type + '>';
+        return getName();
+    }
+
     public void initialize() {
         hasBeenInitialized = true;
     }
@@ -47,27 +70,5 @@ public class Symbol {
         assert !isField;
         this.localIdentifier = localIdentifier;
     }
-
-    public Symbol(String name, boolean isField) {
-        this.name = name;
-        this.isField = isField;
-    }
-
-    public Symbol(String name, Klass type, boolean isField) {
-        this(name, isField);
-        this.type = type;
-    }
-
-    public Klass getType() {
-        return type;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String toString() {
-        if (type != null) return '<' + getName() + ":" + type + '>';
-        return getName();
-    }
+    
 }

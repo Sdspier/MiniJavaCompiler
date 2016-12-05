@@ -311,6 +311,11 @@ public class BytecodeGenerator extends MiniJavaBaseListener implements Opcodes {
     }
 
     /* power */
+    /*
+    A label represents a position in bytecode of a method.
+    Used for jump, goto, and switch
+    Designates the instruction that is just after.
+     */
     @Override
     public void exitPowExpression(MiniJavaParser.PowExpressionContext ctx) {
         Symbol base = new Symbol("base", klasses.get("int"), false);
@@ -320,18 +325,18 @@ public class BytecodeGenerator extends MiniJavaBaseListener implements Opcodes {
         pow.setLocalIdentifier(mg.newLocal(type));
         mg.storeLocal(pow.getLocalIdentifier(), type);
         mg.storeLocal(base.getLocalIdentifier(), type);
-        mg.push(1);
-        Label end = mg.newLabel();
-        Label loop = mg.mark();
-        mg.loadLocal(pow.getLocalIdentifier(), type);
-        mg.ifZCmp(GeneratorAdapter.EQ, end);
+        mg.push(1); //generate the instruction to push the given value on stack
+        Label end = mg.newLabel();  //end position in bytecode
+        Label loop = mg.mark(); //mark the current code position with a new label: LOOP START
+        mg.loadLocal(pow.getLocalIdentifier(), type); // Gen instruction to load given local on the stack
+        mg.ifZCmp(GeneratorAdapter.EQ, end); //Gen instr. to jump to label based on comparison of top integer stack to zero.
         mg.loadLocal(base.getLocalIdentifier(), type);
         mg.math(GeneratorAdapter.MUL, Type.INT_TYPE);
         mg.loadLocal(pow.getLocalIdentifier(), type);
         mg.push(1);
         mg.math(GeneratorAdapter.SUB, Type.INT_TYPE);
         mg.storeLocal(pow.getLocalIdentifier(), type);
-        mg.goTo(loop);
+        mg.goTo(loop); //Gen instr. to jump to loop if true: IF NOT FINISHED
         mg.mark(end);
     }
 
