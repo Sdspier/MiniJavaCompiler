@@ -16,9 +16,7 @@ public class Method extends Symbol implements Scope {
     }
 
     @Override
-    public String getScopeName() {
-        return this.name;
-    }
+    public String getScopeName() { return this.name; }
 
     @Override
     public Scope getEnclosingScope() {
@@ -26,7 +24,7 @@ public class Method extends Symbol implements Scope {
     }
 
     @Override
-    public void defineSymbolInCurrentScope(Symbol sym) {
+    public void define(Symbol sym) {
         locals.put(sym.getName(), sym);
     }
 
@@ -36,13 +34,13 @@ public class Method extends Symbol implements Scope {
     }
 
     @Override
-    public Symbol lookUpNameInContainingScope(String name) {
+    public Symbol lookup(String name) {
         if (parameters.containsKey(name)) {
             return parameters.get(name);
         } else if (locals.containsKey(name)) {
             return locals.get(name);
         } else {
-            return this.getEnclosingScope().lookUpNameInContainingScope(name);
+            return this.getEnclosingScope().lookup(name);
         }
     }
 
@@ -74,7 +72,7 @@ public class Method extends Symbol implements Scope {
     }
 
     public List<Symbol> getParameterList() {
-        return new ArrayList<Symbol>(parameters.values());
+        return new ArrayList<>(parameters.values());
     }
 
     public List<Klass> getParameterListDefinition() {
@@ -89,5 +87,28 @@ public class Method extends Symbol implements Scope {
 
     public static String getMethodSignature(MiniJavaParser.MethodDeclarationContext ctx) {
         return ctx.Identifier().getText() + "()";
+    }
+
+    public String fullName() {
+        String fullName = this.getType().toString() + " ";
+        fullName += name;
+        fullName = fullName.substring(0, fullName.length() - 1);
+        boolean hasParameter = false;
+        for (Symbol parameter : parameters.values()) {
+            fullName += parameter.getType().getScopeName() + ", ";
+            hasParameter = true;
+        }
+        if (hasParameter) {
+            fullName = fullName.substring(0, fullName.length() - 2);
+        }
+        fullName += ")";
+        //System.out.println(fullName);
+        return fullName;
+    }
+
+    public org.objectweb.asm.commons.Method asAsmMethod() {
+        /**    Returns an asm.commons.Method representation of this Method.*/
+        return org.objectweb.asm.commons.Method.getMethod(this.fullName(), true);
+
     }
 }

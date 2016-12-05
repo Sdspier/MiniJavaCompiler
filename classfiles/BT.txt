@@ -1,0 +1,156 @@
+Classfile /C:/Users/Steve/IdeaProjects/MiniJavaCompiler/classfiles/BT.class
+  Last modified Dec 5, 2016; size 575 bytes
+  MD5 checksum e4edccd666d5439468f0d71ef02492e8
+public class BT
+  minor version: 3
+  major version: 45
+  flags: ACC_PUBLIC
+Constant pool:
+   #1 = Utf8               BT
+   #2 = Class              #1             // BT
+   #3 = Utf8               java/lang/Object
+   #4 = Class              #3             // java/lang/Object
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = NameAndType        #5:#6          // "<init>":()V
+   #8 = Methodref          #4.#7          // java/lang/Object."<init>":()V
+   #9 = Utf8               Start
+  #10 = Utf8               ()I
+  #11 = Utf8               Tree
+  #12 = Class              #11            // Tree
+  #13 = Methodref          #12.#7         // Tree."<init>":()V
+  #14 = Utf8               Init
+  #15 = Utf8               (I)Z
+  #16 = NameAndType        #14:#15        // Init:(I)Z
+  #17 = Methodref          #12.#16        // Tree.Init:(I)Z
+  #18 = Utf8               Print
+  #19 = Utf8               ()Z
+  #20 = NameAndType        #18:#19        // Print:()Z
+  #21 = Methodref          #12.#20        // Tree.Print:()Z
+  #22 = Utf8               java/lang/System
+  #23 = Class              #22            // java/lang/System
+  #24 = Utf8               out
+  #25 = Utf8               Ljava/io/PrintStream;
+  #26 = NameAndType        #24:#25        // out:Ljava/io/PrintStream;
+  #27 = Fieldref           #23.#26        // java/lang/System.out:Ljava/io/PrintStream;
+  #28 = Integer            100000000
+  #29 = Utf8               java/io/PrintStream
+  #30 = Class              #29            // java/io/PrintStream
+  #31 = Utf8               println
+  #32 = Utf8               (I)V
+  #33 = NameAndType        #31:#32        // println:(I)V
+  #34 = Methodref          #30.#33        // java/io/PrintStream.println:(I)V
+  #35 = Utf8               Insert
+  #36 = NameAndType        #35:#15        // Insert:(I)Z
+  #37 = Methodref          #12.#36        // Tree.Insert:(I)Z
+  #38 = Utf8               Search
+  #39 = Utf8               (I)I
+  #40 = NameAndType        #38:#39        // Search:(I)I
+  #41 = Methodref          #12.#40        // Tree.Search:(I)I
+  #42 = Utf8               Delete
+  #43 = NameAndType        #42:#15        // Delete:(I)Z
+  #44 = Methodref          #12.#43        // Tree.Delete:(I)Z
+  #45 = Utf8               Code
+{
+  public BT();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #8                  // Method java/lang/Object."<init>":()V
+         4: return
+
+  public int Start();
+    descriptor: ()I
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=1
+         0: new           #12                 // class Tree
+         3: dup
+         4: invokespecial #13                 // Method Tree."<init>":()V
+         7: astore_1
+         8: aload_1
+         9: bipush        16
+        11: invokevirtual #17                 // Method Tree.Init:(I)Z
+        14: istore_2
+        15: aload_1
+        16: invokevirtual #21                 // Method Tree.Print:()Z
+        19: istore_2
+        20: getstatic     #27                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        23: ldc           #28                 // int 100000000
+        25: invokevirtual #34                 // Method java/io/PrintStream.println:(I)V
+        28: aload_1
+        29: bipush        8
+        31: invokevirtual #37                 // Method Tree.Insert:(I)Z
+        34: istore_2
+        35: aload_1
+        36: invokevirtual #21                 // Method Tree.Print:()Z
+        39: istore_2
+        40: aload_1
+        41: bipush        24
+        43: invokevirtual #37                 // Method Tree.Insert:(I)Z
+        46: istore_2
+        47: aload_1
+        48: iconst_4
+        49: invokevirtual #37                 // Method Tree.Insert:(I)Z
+        52: istore_2
+        53: aload_1
+        54: bipush        12
+        56: invokevirtual #37                 // Method Tree.Insert:(I)Z
+        59: istore_2
+        60: aload_1
+        61: bipush        20
+        63: invokevirtual #37                 // Method Tree.Insert:(I)Z
+        66: istore_2
+        67: aload_1
+        68: bipush        28
+        70: invokevirtual #37                 // Method Tree.Insert:(I)Z
+        73: istore_2
+        74: aload_1
+        75: bipush        14
+        77: invokevirtual #37                 // Method Tree.Insert:(I)Z
+        80: istore_2
+        81: aload_1
+        82: invokevirtual #21                 // Method Tree.Print:()Z
+        85: istore_2
+        86: getstatic     #27                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        89: aload_1
+        90: bipush        24
+        92: invokevirtual #41                 // Method Tree.Search:(I)I
+        95: invokevirtual #34                 // Method java/io/PrintStream.println:(I)V
+        98: getstatic     #27                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       101: aload_1
+       102: bipush        12
+       104: invokevirtual #41                 // Method Tree.Search:(I)I
+       107: invokevirtual #34                 // Method java/io/PrintStream.println:(I)V
+       110: getstatic     #27                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       113: aload_1
+       114: bipush        16
+       116: invokevirtual #41                 // Method Tree.Search:(I)I
+       119: invokevirtual #34                 // Method java/io/PrintStream.println:(I)V
+       122: getstatic     #27                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       125: aload_1
+       126: bipush        50
+       128: invokevirtual #41                 // Method Tree.Search:(I)I
+       131: invokevirtual #34                 // Method java/io/PrintStream.println:(I)V
+       134: getstatic     #27                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       137: aload_1
+       138: bipush        12
+       140: invokevirtual #41                 // Method Tree.Search:(I)I
+       143: invokevirtual #34                 // Method java/io/PrintStream.println:(I)V
+       146: aload_1
+       147: bipush        12
+       149: invokevirtual #44                 // Method Tree.Delete:(I)Z
+       152: istore_2
+       153: aload_1
+       154: invokevirtual #21                 // Method Tree.Print:()Z
+       157: istore_2
+       158: getstatic     #27                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       161: aload_1
+       162: bipush        12
+       164: invokevirtual #41                 // Method Tree.Search:(I)I
+       167: invokevirtual #34                 // Method java/io/PrintStream.println:(I)V
+       170: iconst_0
+       171: ireturn
+}

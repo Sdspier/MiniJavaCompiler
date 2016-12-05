@@ -120,6 +120,9 @@ expression
 
 |   '(' expression ')'
 # parenExpression
+
+|   'public' 'enum' Identifier '{' ( Identifier ( ',' Identifier )* )? '}'
+# enumExpression
 ;
 
 AND:'&&';

@@ -1,5 +1,4 @@
-// Generated from MiniJava.g4 by ANTLR 4.5.3
-package MiniJava;
+package MiniJava;// Generated from MiniJava.g4 by ANTLR 4.5.3
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -130,6 +129,13 @@ public class MiniJavaBaseVisitor<T> extends AbstractParseTreeVisitor<T> implemen
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitArrayAssignmentStatement(MiniJavaParser.ArrayAssignmentStatementContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitEnumStatement(MiniJavaParser.EnumStatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

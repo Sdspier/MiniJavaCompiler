@@ -2,7 +2,6 @@ package MiniJava;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
-
 import java.util.*;
 
 
@@ -75,7 +74,7 @@ public class InitializationBeforeUseCheckVisitor extends MiniJavaBaseVisitor<Set
     @Override
     public Set<Symbol> visitVariableAssignmentStatement(MiniJavaParser.VariableAssignmentStatementContext ctx) {
         Set<Symbol> sym = visitChildren(ctx);
-        currentScope.initialize(currentScope.lookUpNameInContainingScope(ctx.Identifier().getText()));
+        currentScope.initialize(currentScope.lookup(ctx.Identifier().getText()));
         return sym;
     }
 

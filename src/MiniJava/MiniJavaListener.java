@@ -1,6 +1,4 @@
-// Generated from MiniJava.g4 by ANTLR 4.5.3
-package MiniJava;
-
+package MiniJava;// Generated from MiniJava.g4 by ANTLR 4.5.3
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -190,6 +188,18 @@ public interface MiniJavaListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitArrayAssignmentStatement(MiniJavaParser.ArrayAssignmentStatementContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code enumStatement}
+	 * labeled alternative in {@link MiniJavaParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void enterEnumStatement(MiniJavaParser.EnumStatementContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code enumStatement}
+	 * labeled alternative in {@link MiniJavaParser#statement}.
+	 * @param ctx the parse tree
+	 */
+	void exitEnumStatement(MiniJavaParser.EnumStatementContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link MiniJavaParser#ifBlock}.
 	 * @param ctx the parse tree

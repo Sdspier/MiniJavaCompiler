@@ -3,8 +3,8 @@ package MiniJava;
 import java.util.*;
 
 public class Block implements Scope {
-    private Map<String, Symbol> locals = new HashMap<String, Symbol>();
-    private Map<String, Symbol> initializedVariables = new HashMap<String, Symbol>();
+    private Map<String, Symbol> locals = new HashMap<>();
+    private Map<String, Symbol> initializedVariables = new HashMap<>();
     private Scope enclosingScope;
     private String scopeName = "local";
 
@@ -23,7 +23,7 @@ public class Block implements Scope {
     }
 
     @Override
-    public void defineSymbolInCurrentScope(Symbol sym) {
+    public void define(Symbol sym) {
         locals.put(sym.getName(), sym);
     }
 
@@ -33,11 +33,11 @@ public class Block implements Scope {
     }
 
     @Override
-    public Symbol lookUpNameInContainingScope(String name) {
+    public Symbol lookup(String name) {
         if (locals.containsKey(name)) {
             return locals.get(name);
         } else {
-            return this.getEnclosingScope().lookUpNameInContainingScope(name);
+            return this.getEnclosingScope().lookup(name);
         }
     }
 

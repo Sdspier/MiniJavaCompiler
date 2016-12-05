@@ -3,22 +3,22 @@ package MiniJava;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 
-public class TypeCheckVisitor extends MiniJavaBaseVisitor<Klass> {
-    final Map<String, Klass> klasses;
-    ParseTreeProperty<Scope> scopes;
-    Scope currentScope;
-    ParseTreeProperty<Klass> callerTypes;
-    MiniJavaParser parser;
-    Klass INT;
-    Klass INTARRAY;
-    Klass BOOLEAN;
+class TypeCheckVisitor extends MiniJavaBaseVisitor<Klass> {
+    private final Map<String, Klass> klasses;
+    private ParseTreeProperty<Scope> scopes;
+    private Scope currentScope;
+    private ParseTreeProperty<Klass> callerTypes;
+    private MiniJavaParser parser;
+    private Klass INT;
+    private Klass INTARRAY;
+    private Klass BOOLEAN;
 
-    public TypeCheckVisitor(final Map<String, Klass> klasses, ParseTreeProperty<Scope> scopes, ParseTreeProperty<Klass> callerTypes, MiniJavaParser parser) {
+    TypeCheckVisitor(final Map<String, Klass> klasses, ParseTreeProperty<Scope> scopes, ParseTreeProperty<Klass> callerTypes, MiniJavaParser parser) {
         INT = klasses.get("int");
         INTARRAY = klasses.get("int[]");
         BOOLEAN = klasses.get("boolean");
@@ -47,7 +47,7 @@ public class TypeCheckVisitor extends MiniJavaBaseVisitor<Klass> {
         if (originalKlass == null) {
             originalMethod = null;
         } else {
-            originalMethod = (Method) originalKlass.lookUpNameInContainingScope(currentScope.getScopeName());
+            originalMethod = (Method) originalKlass.lookup(currentScope.getScopeName());
         }
         Method currentMethod = (Method) currentScope;
         Klass currentKlass = (Klass) currentMethod.getEnclosingScope();
@@ -125,12 +125,12 @@ public class TypeCheckVisitor extends MiniJavaBaseVisitor<Klass> {
     @Override
     public Klass visitVariableAssignmentStatement(MiniJavaParser.VariableAssignmentStatementContext ctx) {
         String name = ctx.Identifier().getSymbol().getText();
-        Symbol var = currentScope.lookUpNameInContainingScope(name);
+        Symbol variable = currentScope.lookup(name);
         Klass rightSide = visit(ctx.expression());
-        if (var == null) {
+        if (variable == null) {
             ErrorStrategy.reportUnresolvedSymbolError(parser, ctx.Identifier().getSymbol(), "variable", Scope.getEnclosingKlass(currentScope));
-        } else if (rightSide != null && !rightSide.isInstanceOf(var.getType())) {
-            ErrorStrategy.reportRequiredFoundError("error: incompatible types.", parser, ctx.Identifier().getSymbol(), var.getType().toString(), (rightSide.toString()));
+        } else if (rightSide != null && !rightSide.isInstanceOf(variable.getType())) {
+            ErrorStrategy.reportRequiredFoundError("error: incompatible types.", parser, ctx.Identifier().getSymbol(), variable.getType().toString(), (rightSide.toString()));
         }
         return null;
     }
@@ -138,13 +138,13 @@ public class TypeCheckVisitor extends MiniJavaBaseVisitor<Klass> {
     @Override
     public Klass visitArrayAssignmentStatement(MiniJavaParser.ArrayAssignmentStatementContext ctx) {
         String name = ctx.Identifier().getSymbol().getText();
-        Symbol var = currentScope.lookUpNameInContainingScope(name);
+        Symbol variable = currentScope.lookup(name);
         Klass index = visit(ctx.expression(0));
         Klass rightSide = visit(ctx.expression(1));
-        if (var == null) {
+        if (variable == null) {
             ErrorStrategy.reportUnresolvedSymbolError(parser, ctx.Identifier().getSymbol(), "variable", Scope.getEnclosingKlass(currentScope));
-        } else if (var.getType() != INTARRAY) {
-            ErrorStrategy.reportRequiredFoundError("error: incompatible types.", parser, ctx.LSB().getSymbol(), INTARRAY.toString(), (var.getType().toString()));
+        } else if (variable.getType() != INTARRAY) {
+            ErrorStrategy.reportRequiredFoundError("error: incompatible types.", parser, ctx.LSB().getSymbol(), INTARRAY.toString(), (variable.getType().toString()));
         } else if (rightSide != null && INT != rightSide) {
             ErrorStrategy.reportRequiredFoundError("error: incompatible types.", parser, ctx.EQ().getSymbol(), INT.toString(), (rightSide.toString()));
         } else if (index != INT) {
@@ -206,10 +206,10 @@ public class TypeCheckVisitor extends MiniJavaBaseVisitor<Klass> {
 
     @Override
     public Klass visitArrayLengthExpression(MiniJavaParser.ArrayLengthExpressionContext ctx) {
-        Klass intArr = visit(ctx.expression());
-        if (intArr != INTARRAY) {
+        Klass intArray = visit(ctx.expression());
+        if (intArray != INTARRAY) {
             ErrorStrategy.reportFileNameAndLineNumber(ctx.DOTLENGTH().getSymbol());
-            System.err.println("error: bad operand type " + intArr + " for unary operator '.length'");
+            System.err.println("error: bad operand type " + intArray + " for unary operator '.length'");
             ErrorStrategy.reportUnderlineError(parser, ctx.DOTLENGTH().getSymbol());
         }
         return INT;
@@ -223,15 +223,12 @@ public class TypeCheckVisitor extends MiniJavaBaseVisitor<Klass> {
             return null;
         }
         String methodName = ctx.Identifier().getText() + "()";
-        Method method = (Method) (type.lookUpNameInContainingScope(methodName));
+        Method method = (Method) (type.lookup(methodName));
         if (method == null) {
             ErrorStrategy.reportUnresolvedSymbolError(parser, ctx.Identifier().getSymbol(), "method", type);
             return null;
         } else {
-            List<Klass> parameterList = new ArrayList<Klass>();
-            for (MiniJavaParser.ExpressionContext expCtx : ctx.expression().subList(1, ctx.expression().size())) {
-                parameterList.add(visit(expCtx));
-            }
+            List<Klass> parameterList = ctx.expression().subList(1, ctx.expression().size()).stream().map(this::visit).collect(Collectors.toList());
             List<Klass> parameterListDefinition = method.getParameterListDefinition();
             if (parameterListDefinition.size() != parameterList.size()) {
                 ErrorStrategy.reportRequiredFoundError(
@@ -266,7 +263,7 @@ public class TypeCheckVisitor extends MiniJavaBaseVisitor<Klass> {
     @Override
     public Klass visitIdentifierExpression(MiniJavaParser.IdentifierExpressionContext ctx) {
         String name = ctx.Identifier().getSymbol().getText();
-        Symbol var = currentScope.lookUpNameInContainingScope(name);
+        Symbol var = currentScope.lookup(name);
         if (var == null) {
             ErrorStrategy.reportUnresolvedSymbolError(parser, ctx.Identifier().getSymbol(), "variable", Scope.getEnclosingKlass(currentScope));
             return null;
@@ -314,7 +311,7 @@ public class TypeCheckVisitor extends MiniJavaBaseVisitor<Klass> {
         return visit(ctx.expression());
     }
 
-    public Klass scopeCheck(ParserRuleContext ctx) {
+    private Klass scopeCheck(ParserRuleContext ctx) {
         currentScope = scopes.get(ctx);
         Klass result = visitChildren(ctx);
         currentScope = currentScope.getEnclosingScope();

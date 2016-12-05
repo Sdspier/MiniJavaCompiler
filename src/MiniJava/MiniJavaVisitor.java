@@ -1,8 +1,5 @@
-// Generated from MiniJava.g4 by ANTLR 4.5.3
-package MiniJava;
-
+package MiniJava;// Generated from MiniJava.g4 by ANTLR 4.5.3
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
-
 
 /**
  * This interface defines a complete generic visitor for a parse tree produced
@@ -120,6 +117,13 @@ public interface MiniJavaVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitArrayAssignmentStatement(MiniJavaParser.ArrayAssignmentStatementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code enumStatement}
+	 * labeled alternative in {@link MiniJavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEnumStatement(MiniJavaParser.EnumStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link MiniJavaParser#ifBlock}.
 	 * @param ctx the parse tree

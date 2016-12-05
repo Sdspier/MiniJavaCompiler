@@ -1,0 +1,404 @@
+Classfile /C:/Users/Steve/IdeaProjects/MiniJavaCompiler/classfiles/List.class
+  Last modified Dec 5, 2016; size 1673 bytes
+  MD5 checksum caab9f978b7641ee6865ac4fdcfdc6d0
+public class List
+  minor version: 3
+  major version: 45
+  flags: ACC_PUBLIC
+Constant pool:
+   #1 = Utf8               List
+   #2 = Class              #1             // List
+   #3 = Utf8               java/lang/Object
+   #4 = Class              #3             // java/lang/Object
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = NameAndType        #5:#6          // "<init>":()V
+   #8 = Methodref          #4.#7          // java/lang/Object."<init>":()V
+   #9 = Utf8               elem
+  #10 = Utf8               LElement;
+  #11 = Utf8               next
+  #12 = Utf8               LList;
+  #13 = Utf8               end
+  #14 = Utf8               Z
+  #15 = Utf8               Init
+  #16 = Utf8               ()Z
+  #17 = NameAndType        #13:#14        // end:Z
+  #18 = Fieldref           #2.#17         // List.end:Z
+  #19 = Utf8               InitNew
+  #20 = Utf8               (LElement;LList;Z)Z
+  #21 = NameAndType        #9:#10         // elem:LElement;
+  #22 = Fieldref           #2.#21         // List.elem:LElement;
+  #23 = NameAndType        #11:#12        // next:LList;
+  #24 = Fieldref           #2.#23         // List.next:LList;
+  #25 = Utf8               Insert
+  #26 = Utf8               (LElement;)LList;
+  #27 = Methodref          #2.#7          // List."<init>":()V
+  #28 = NameAndType        #19:#20        // InitNew:(LElement;LList;Z)Z
+  #29 = Methodref          #2.#28         // List.InitNew:(LElement;LList;Z)Z
+  #30 = Utf8               SetNext
+  #31 = Utf8               (LList;)Z
+  #32 = Utf8               Delete
+  #33 = Utf8               Element
+  #34 = Class              #33            // Element
+  #35 = Utf8               Equal
+  #36 = Utf8               (LElement;)Z
+  #37 = NameAndType        #35:#36        // Equal:(LElement;)Z
+  #38 = Methodref          #34.#37        // Element.Equal:(LElement;)Z
+  #39 = Utf8               GetNext
+  #40 = Utf8               ()LList;
+  #41 = NameAndType        #39:#40        // GetNext:()LList;
+  #42 = Methodref          #2.#41         // List.GetNext:()LList;
+  #43 = Utf8               java/lang/System
+  #44 = Class              #43            // java/lang/System
+  #45 = Utf8               out
+  #46 = Utf8               Ljava/io/PrintStream;
+  #47 = NameAndType        #45:#46        // out:Ljava/io/PrintStream;
+  #48 = Fieldref           #44.#47        // java/lang/System.out:Ljava/io/PrintStream;
+  #49 = Utf8               java/io/PrintStream
+  #50 = Class              #49            // java/io/PrintStream
+  #51 = Utf8               println
+  #52 = Utf8               (I)V
+  #53 = NameAndType        #51:#52        // println:(I)V
+  #54 = Methodref          #50.#53        // java/io/PrintStream.println:(I)V
+  #55 = NameAndType        #30:#31        // SetNext:(LList;)Z
+  #56 = Methodref          #2.#55         // List.SetNext:(LList;)Z
+  #57 = Utf8               GetEnd
+  #58 = NameAndType        #57:#16        // GetEnd:()Z
+  #59 = Methodref          #2.#58         // List.GetEnd:()Z
+  #60 = Utf8               GetElem
+  #61 = Utf8               ()LElement;
+  #62 = NameAndType        #60:#61        // GetElem:()LElement;
+  #63 = Methodref          #2.#62         // List.GetElem:()LElement;
+  #64 = Utf8               Search
+  #65 = Utf8               (LElement;)I
+  #66 = Utf8               Print
+  #67 = Utf8               GetAge
+  #68 = Utf8               ()I
+  #69 = NameAndType        #67:#68        // GetAge:()I
+  #70 = Methodref          #34.#69        // Element.GetAge:()I
+  #71 = Utf8               Code
+  #72 = Utf8               StackMap
+{
+  protected Element elem;
+    descriptor: LElement;
+    flags: ACC_PROTECTED
+
+  protected List next;
+    descriptor: LList;
+    flags: ACC_PROTECTED
+
+  protected boolean end;
+    descriptor: Z
+    flags: ACC_PROTECTED
+
+  public List();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #8                  // Method java/lang/Object."<init>":()V
+         4: return
+
+  public boolean Init();
+    descriptor: ()Z
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: aload_0
+         1: iconst_1
+         2: putfield      #18                 // Field end:Z
+         5: iconst_1
+         6: ireturn
+
+  public boolean InitNew(Element, List, boolean);
+    descriptor: (LElement;LList;Z)Z
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=4, args_size=4
+         0: aload_0
+         1: iload_3
+         2: putfield      #18                 // Field end:Z
+         5: aload_0
+         6: aload_1
+         7: putfield      #22                 // Field elem:LElement;
+        10: aload_0
+        11: aload_2
+        12: putfield      #24                 // Field next:LList;
+        15: iconst_1
+        16: ireturn
+
+  public List Insert(Element);
+    descriptor: (LElement;)LList;
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=5, args_size=2
+         0: aload_0
+         1: astore_3
+         2: new           #2                  // class List
+         5: dup
+         6: invokespecial #27                 // Method "<init>":()V
+         9: astore        4
+        11: aload         4
+        13: aload_1
+        14: aload_3
+        15: iconst_0
+        16: invokevirtual #29                 // Method InitNew:(LElement;LList;Z)Z
+        19: istore_2
+        20: aload         4
+        22: areturn
+
+  public boolean SetNext(List);
+    descriptor: (LList;)Z
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=2
+         0: aload_0
+         1: aload_1
+         2: putfield      #24                 // Field next:LList;
+         5: iconst_1
+         6: ireturn
+
+  public List Delete(Element);
+    descriptor: (LElement;)LList;
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=11, args_size=2
+         0: aload_0
+         1: astore_2
+         2: iconst_0
+         3: istore_3
+         4: iconst_0
+         5: iconst_1
+         6: isub
+         7: istore        9
+         9: aload_0
+        10: astore        5
+        12: aload_0
+        13: astore        6
+        15: aload_0
+        16: getfield      #18                 // Field end:Z
+        19: istore        7
+        21: aload_0
+        22: getfield      #22                 // Field elem:LElement;
+        25: astore        8
+        27: iload         7
+        29: iconst_1
+        30: ixor
+        31: iload_3
+        32: iconst_1
+        33: ixor
+        34: iand
+        35: ifeq          155
+        38: aload_1
+        39: aload         8
+        41: invokevirtual #38                 // Method Element.Equal:(LElement;)Z
+        44: ifeq          109
+        47: iconst_1
+        48: istore_3
+        49: iload         9
+        51: iconst_0
+        52: if_icmplt     59
+        55: iconst_0
+        56: goto          60
+        59: iconst_1
+        60: ifeq          72
+        63: aload         5
+        65: invokevirtual #42                 // Method GetNext:()LList;
+        68: astore_2
+        69: goto          106
+        72: getstatic     #48                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        75: iconst_0
+        76: sipush        555
+        79: isub
+        80: invokevirtual #54                 // Method java/io/PrintStream.println:(I)V
+        83: aload         6
+        85: aload         5
+        87: invokevirtual #42                 // Method GetNext:()LList;
+        90: invokevirtual #56                 // Method SetNext:(LList;)Z
+        93: istore        4
+        95: getstatic     #48                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        98: iconst_0
+        99: sipush        555
+       102: isub
+       103: invokevirtual #54                 // Method java/io/PrintStream.println:(I)V
+       106: goto          112
+       109: iconst_0
+       110: istore        10
+       112: iload_3
+       113: iconst_1
+       114: ixor
+       115: ifeq          149
+       118: aload         5
+       120: astore        6
+       122: aload         5
+       124: invokevirtual #42                 // Method GetNext:()LList;
+       127: astore        5
+       129: aload         5
+       131: invokevirtual #59                 // Method GetEnd:()Z
+       134: istore        7
+       136: aload         5
+       138: invokevirtual #63                 // Method GetElem:()LElement;
+       141: astore        8
+       143: iconst_1
+       144: istore        9
+       146: goto          152
+       149: iconst_0
+       150: istore        10
+       152: goto          27
+       155: aload_2
+       156: areturn
+      StackMap: number_of_entries = 10
+        frame_type = 255 offset = 27
+          locals = [ class List, class Element, class List, int, top, class List, class List, int, class Element, int ]
+          stack = []
+        frame_type = 255 offset = 59
+          locals = [ class List, class Element, class List, int, top, class List, class List, int, class Element, int ]
+          stack = []
+        frame_type = 255 offset = 60
+          locals = [ class List, class Element, class List, int, top, class List, class List, int, class Element, int ]
+          stack = [ int ]
+        frame_type = 255 offset = 72
+          locals = [ class List, class Element, class List, int, top, class List, class List, int, class Element, int ]
+          stack = []
+        frame_type = 255 offset = 106
+          locals = [ class List, class Element, class List, int, top, class List, class List, int, class Element, int ]
+          stack = []
+        frame_type = 255 offset = 109
+          locals = [ class List, class Element, class List, int, top, class List, class List, int, class Element, int ]
+          stack = []
+        frame_type = 255 offset = 112
+          locals = [ class List, class Element, class List, int, top, class List, class List, int, class Element, int ]
+          stack = []
+        frame_type = 255 offset = 149
+          locals = [ class List, class Element, class List, int, top, class List, class List, int, class Element, int ]
+          stack = []
+        frame_type = 255 offset = 152
+          locals = [ class List, class Element, class List, int, top, class List, class List, int, class Element, int ]
+          stack = []
+        frame_type = 255 offset = 155
+          locals = [ class List, class Element, class List, int, top, class List, class List, int, class Element, int ]
+          stack = []
+
+  public int Search(Element);
+    descriptor: (LElement;)I
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=7, args_size=2
+         0: iconst_0
+         1: istore_2
+         2: aload_0
+         3: astore_3
+         4: aload_0
+         5: getfield      #18                 // Field end:Z
+         8: istore        5
+        10: aload_0
+        11: getfield      #22                 // Field elem:LElement;
+        14: astore        4
+        16: iload         5
+        18: iconst_1
+        19: ixor
+        20: ifeq          60
+        23: aload_1
+        24: aload         4
+        26: invokevirtual #38                 // Method Element.Equal:(LElement;)Z
+        29: ifeq          37
+        32: iconst_1
+        33: istore_2
+        34: goto          40
+        37: iconst_0
+        38: istore        6
+        40: aload_3
+        41: invokevirtual #42                 // Method GetNext:()LList;
+        44: astore_3
+        45: aload_3
+        46: invokevirtual #59                 // Method GetEnd:()Z
+        49: istore        5
+        51: aload_3
+        52: invokevirtual #63                 // Method GetElem:()LElement;
+        55: astore        4
+        57: goto          16
+        60: iload_2
+        61: ireturn
+      StackMap: number_of_entries = 4
+        frame_type = 255 offset = 16
+          locals = [ class List, class Element, int, class List, class Element, int ]
+          stack = []
+        frame_type = 255 offset = 37
+          locals = [ class List, class Element, int, class List, class Element, int ]
+          stack = []
+        frame_type = 255 offset = 40
+          locals = [ class List, class Element, int, class List, class Element, int ]
+          stack = []
+        frame_type = 255 offset = 60
+          locals = [ class List, class Element, int, class List, class Element, int ]
+          stack = []
+
+  public boolean GetEnd();
+    descriptor: ()Z
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #18                 // Field end:Z
+         4: ireturn
+
+  public Element GetElem();
+    descriptor: ()LElement;
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #22                 // Field elem:LElement;
+         4: areturn
+
+  public List GetNext();
+    descriptor: ()LList;
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #24                 // Field next:LList;
+         4: areturn
+
+  public boolean Print();
+    descriptor: ()Z
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=4, args_size=1
+         0: aload_0
+         1: astore_1
+         2: aload_0
+         3: getfield      #18                 // Field end:Z
+         6: istore_2
+         7: aload_0
+         8: getfield      #22                 // Field elem:LElement;
+        11: astore_3
+        12: iload_2
+        13: iconst_1
+        14: ixor
+        15: ifeq          46
+        18: getstatic     #48                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        21: aload_3
+        22: invokevirtual #70                 // Method Element.GetAge:()I
+        25: invokevirtual #54                 // Method java/io/PrintStream.println:(I)V
+        28: aload_1
+        29: invokevirtual #42                 // Method GetNext:()LList;
+        32: astore_1
+        33: aload_1
+        34: invokevirtual #59                 // Method GetEnd:()Z
+        37: istore_2
+        38: aload_1
+        39: invokevirtual #63                 // Method GetElem:()LElement;
+        42: astore_3
+        43: goto          12
+        46: iconst_1
+        47: ireturn
+      StackMap: number_of_entries = 2
+        frame_type = 255 offset = 12
+          locals = [ class List, class List, int, class Element ]
+          stack = []
+        frame_type = 255 offset = 46
+          locals = [ class List, class List, int, class Element ]
+          stack = []
+}

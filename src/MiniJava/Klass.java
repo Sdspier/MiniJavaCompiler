@@ -1,6 +1,7 @@
 package MiniJava;
 
 import java.util.*;
+import org.objectweb.asm.*;
 
 public class Klass implements Scope {
     public Klass superKlass;
@@ -29,7 +30,7 @@ public class Klass implements Scope {
     }
 
     @Override
-    public void defineSymbolInCurrentScope(Symbol sym) {
+    public void define(Symbol sym) {
         symTable.put(sym.getName(), sym);
     }
 
@@ -49,13 +50,14 @@ public class Klass implements Scope {
     }
 
     @Override
-    public Symbol lookUpNameInContainingScope(String name) {
+    public Symbol lookup(String name) {
         Symbol symbol = null;
         for (Klass klass = this; symbol == null && klass != null; klass = klass.getSuperKlass()) {
             symbol = klass.symTable.get(name);
         }
         return symbol;
     }
+
 
     @Override
     public Symbol lookupLocally(String name) {
@@ -64,7 +66,7 @@ public class Klass implements Scope {
 
     @Override
     public boolean hasBeenInitialized(String name) {
-        return this.lookUpNameInContainingScope(name) != null;
+        return this.lookup(name) != null;
     }
 
     @Override
@@ -77,4 +79,17 @@ public class Klass implements Scope {
         return name;
     }
 
+    public Type asAsmType() {
+        /** Returns an asm.Type representation for this klass. */
+        if (this.name.equals("int")) {
+            return Type.INT_TYPE;
+        } else if (this.name.equals("boolean")) {
+            return Type.BOOLEAN_TYPE;
+        } else if (this.name.equals("int[]")) {
+            return Type.getType(int[].class);
+        } else {
+            //System.out.println("this.name = " + this.name);
+            return Type.getType("L" + this.name + ";");
+        }
+    }
 }

@@ -1,0 +1,256 @@
+Classfile /C:/Users/Steve/IdeaProjects/MiniJavaCompiler/classfiles/Element.class
+  Last modified Dec 5, 2016; size 909 bytes
+  MD5 checksum 609784ed1f99e1a959d522f781e916dc
+public class Element
+  minor version: 3
+  major version: 45
+  flags: ACC_PUBLIC
+Constant pool:
+   #1 = Utf8               Element
+   #2 = Class              #1             // Element
+   #3 = Utf8               java/lang/Object
+   #4 = Class              #3             // java/lang/Object
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = NameAndType        #5:#6          // "<init>":()V
+   #8 = Methodref          #4.#7          // java/lang/Object."<init>":()V
+   #9 = Utf8               Age
+  #10 = Utf8               I
+  #11 = Utf8               Salary
+  #12 = Utf8               Married
+  #13 = Utf8               Z
+  #14 = Utf8               Init
+  #15 = Utf8               (IIZ)Z
+  #16 = NameAndType        #9:#10         // Age:I
+  #17 = Fieldref           #2.#16         // Element.Age:I
+  #18 = NameAndType        #11:#10        // Salary:I
+  #19 = Fieldref           #2.#18         // Element.Salary:I
+  #20 = NameAndType        #12:#13        // Married:Z
+  #21 = Fieldref           #2.#20         // Element.Married:Z
+  #22 = Utf8               GetAge
+  #23 = Utf8               ()I
+  #24 = Utf8               GetSalary
+  #25 = Utf8               GetMarried
+  #26 = Utf8               ()Z
+  #27 = Utf8               Equal
+  #28 = Utf8               (LElement;)Z
+  #29 = NameAndType        #22:#23        // GetAge:()I
+  #30 = Methodref          #2.#29         // Element.GetAge:()I
+  #31 = Utf8               Compare
+  #32 = Utf8               (II)Z
+  #33 = NameAndType        #31:#32        // Compare:(II)Z
+  #34 = Methodref          #2.#33         // Element.Compare:(II)Z
+  #35 = NameAndType        #24:#23        // GetSalary:()I
+  #36 = Methodref          #2.#35         // Element.GetSalary:()I
+  #37 = NameAndType        #25:#26        // GetMarried:()Z
+  #38 = Methodref          #2.#37         // Element.GetMarried:()Z
+  #39 = Utf8               Code
+  #40 = Utf8               StackMap
+{
+  protected int Age;
+    descriptor: I
+    flags: ACC_PROTECTED
+
+  protected int Salary;
+    descriptor: I
+    flags: ACC_PROTECTED
+
+  protected boolean Married;
+    descriptor: Z
+    flags: ACC_PROTECTED
+
+  public Element();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #8                  // Method java/lang/Object."<init>":()V
+         4: return
+
+  public boolean Init(int, int, boolean);
+    descriptor: (IIZ)Z
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=4, args_size=4
+         0: aload_0
+         1: iload_1
+         2: putfield      #17                 // Field Age:I
+         5: aload_0
+         6: iload_2
+         7: putfield      #19                 // Field Salary:I
+        10: aload_0
+        11: iload_3
+        12: putfield      #21                 // Field Married:Z
+        15: iconst_1
+        16: ireturn
+
+  public int GetAge();
+    descriptor: ()I
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #17                 // Field Age:I
+         4: ireturn
+
+  public int GetSalary();
+    descriptor: ()I
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #19                 // Field Salary:I
+         4: ireturn
+
+  public boolean GetMarried();
+    descriptor: ()Z
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: getfield      #21                 // Field Married:Z
+         4: ireturn
+
+  public boolean Equal(Element);
+    descriptor: (LElement;)Z
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=6, args_size=2
+         0: iconst_1
+         1: istore_2
+         2: aload_1
+         3: invokevirtual #30                 // Method GetAge:()I
+         6: istore_3
+         7: aload_0
+         8: iload_3
+         9: aload_0
+        10: getfield      #17                 // Field Age:I
+        13: invokevirtual #34                 // Method Compare:(II)Z
+        16: iconst_1
+        17: ixor
+        18: ifeq          26
+        21: iconst_0
+        22: istore_2
+        23: goto          94
+        26: aload_1
+        27: invokevirtual #36                 // Method GetSalary:()I
+        30: istore        4
+        32: aload_0
+        33: iload         4
+        35: aload_0
+        36: getfield      #19                 // Field Salary:I
+        39: invokevirtual #34                 // Method Compare:(II)Z
+        42: iconst_1
+        43: ixor
+        44: ifeq          52
+        47: iconst_0
+        48: istore_2
+        49: goto          94
+        52: aload_0
+        53: getfield      #21                 // Field Married:Z
+        56: ifeq          79
+        59: aload_1
+        60: invokevirtual #38                 // Method GetMarried:()Z
+        63: iconst_1
+        64: ixor
+        65: ifeq          73
+        68: iconst_0
+        69: istore_2
+        70: goto          76
+        73: iconst_0
+        74: istore        5
+        76: goto          94
+        79: aload_1
+        80: invokevirtual #38                 // Method GetMarried:()Z
+        83: ifeq          91
+        86: iconst_0
+        87: istore_2
+        88: goto          94
+        91: iconst_0
+        92: istore        5
+        94: iload_2
+        95: ireturn
+      StackMap: number_of_entries = 7
+        frame_type = 255 offset = 26
+          locals = [ class Element, class Element, int, int ]
+          stack = []
+        frame_type = 255 offset = 52
+          locals = [ class Element, class Element, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 73
+          locals = [ class Element, class Element, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 76
+          locals = [ class Element, class Element, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 79
+          locals = [ class Element, class Element, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 91
+          locals = [ class Element, class Element, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 94
+          locals = [ class Element, class Element, int, int ]
+          stack = []
+
+  public boolean Compare(int, int);
+    descriptor: (II)Z
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=5, args_size=3
+         0: iconst_0
+         1: istore_3
+         2: iload_2
+         3: iconst_1
+         4: iadd
+         5: istore        4
+         7: iload_1
+         8: iload_2
+         9: if_icmplt     16
+        12: iconst_0
+        13: goto          17
+        16: iconst_1
+        17: ifeq          25
+        20: iconst_0
+        21: istore_3
+        22: goto          48
+        25: iload_1
+        26: iload         4
+        28: if_icmplt     35
+        31: iconst_0
+        32: goto          36
+        35: iconst_1
+        36: iconst_1
+        37: ixor
+        38: ifeq          46
+        41: iconst_0
+        42: istore_3
+        43: goto          48
+        46: iconst_1
+        47: istore_3
+        48: iload_3
+        49: ireturn
+      StackMap: number_of_entries = 7
+        frame_type = 255 offset = 16
+          locals = [ class Element, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 17
+          locals = [ class Element, int, int, int, int ]
+          stack = [ int ]
+        frame_type = 255 offset = 25
+          locals = [ class Element, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 35
+          locals = [ class Element, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 36
+          locals = [ class Element, int, int, int, int ]
+          stack = [ int ]
+        frame_type = 255 offset = 46
+          locals = [ class Element, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 48
+          locals = [ class Element, int, int, int, int ]
+          stack = []
+}

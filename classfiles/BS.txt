@@ -1,0 +1,577 @@
+Classfile /C:/Users/Steve/IdeaProjects/MiniJavaCompiler/classfiles/BS.class
+  Last modified Dec 5, 2016; size 1860 bytes
+  MD5 checksum 72d654f9cbd22d9767ec2a07e192e586
+public class BS
+  minor version: 3
+  major version: 45
+  flags: ACC_PUBLIC
+Constant pool:
+   #1 = Utf8               BS
+   #2 = Class              #1             // BS
+   #3 = Utf8               java/lang/Object
+   #4 = Class              #3             // java/lang/Object
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = NameAndType        #5:#6          // "<init>":()V
+   #8 = Methodref          #4.#7          // java/lang/Object."<init>":()V
+   #9 = Utf8               number
+  #10 = Utf8               [I
+  #11 = Utf8               size
+  #12 = Utf8               I
+  #13 = Utf8               Start
+  #14 = Utf8               (I)I
+  #15 = Utf8               Init
+  #16 = NameAndType        #15:#14        // Init:(I)I
+  #17 = Methodref          #2.#16         // BS.Init:(I)I
+  #18 = Utf8               Print
+  #19 = Utf8               ()I
+  #20 = NameAndType        #18:#19        // Print:()I
+  #21 = Methodref          #2.#20         // BS.Print:()I
+  #22 = Utf8               Search
+  #23 = Utf8               (I)Z
+  #24 = NameAndType        #22:#23        // Search:(I)Z
+  #25 = Methodref          #2.#24         // BS.Search:(I)Z
+  #26 = Utf8               java/lang/System
+  #27 = Class              #26            // java/lang/System
+  #28 = Utf8               out
+  #29 = Utf8               Ljava/io/PrintStream;
+  #30 = NameAndType        #28:#29        // out:Ljava/io/PrintStream;
+  #31 = Fieldref           #27.#30        // java/lang/System.out:Ljava/io/PrintStream;
+  #32 = Utf8               java/io/PrintStream
+  #33 = Class              #32            // java/io/PrintStream
+  #34 = Utf8               println
+  #35 = Utf8               (I)V
+  #36 = NameAndType        #34:#35        // println:(I)V
+  #37 = Methodref          #33.#36        // java/io/PrintStream.println:(I)V
+  #38 = NameAndType        #9:#10         // number:[I
+  #39 = Fieldref           #2.#38         // BS.number:[I
+  #40 = Utf8               Div
+  #41 = NameAndType        #40:#14        // Div:(I)I
+  #42 = Methodref          #2.#41         // BS.Div:(I)I
+  #43 = Utf8               Compare
+  #44 = Utf8               (II)Z
+  #45 = NameAndType        #43:#44        // Compare:(II)Z
+  #46 = Methodref          #2.#45         // BS.Compare:(II)Z
+  #47 = NameAndType        #11:#12        // size:I
+  #48 = Fieldref           #2.#47         // BS.size:I
+  #49 = Integer            99999
+  #50 = Utf8               Code
+  #51 = Utf8               StackMap
+{
+  protected int[] number;
+    descriptor: [I
+    flags: ACC_PROTECTED
+
+  protected int size;
+    descriptor: I
+    flags: ACC_PROTECTED
+
+  public BS();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #8                  // Method java/lang/Object."<init>":()V
+         4: return
+
+  public int Start(int);
+    descriptor: (I)I
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=4, args_size=2
+         0: aload_0
+         1: iload_1
+         2: invokevirtual #17                 // Method Init:(I)I
+         5: istore_2
+         6: aload_0
+         7: invokevirtual #21                 // Method Print:()I
+        10: istore_3
+        11: aload_0
+        12: bipush        8
+        14: invokevirtual #25                 // Method Search:(I)Z
+        17: ifeq          30
+        20: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        23: iconst_1
+        24: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+        27: goto          37
+        30: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        33: iconst_0
+        34: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+        37: aload_0
+        38: bipush        19
+        40: invokevirtual #25                 // Method Search:(I)Z
+        43: ifeq          56
+        46: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        49: iconst_1
+        50: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+        53: goto          63
+        56: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        59: iconst_0
+        60: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+        63: aload_0
+        64: bipush        20
+        66: invokevirtual #25                 // Method Search:(I)Z
+        69: ifeq          82
+        72: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        75: iconst_1
+        76: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+        79: goto          89
+        82: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        85: iconst_0
+        86: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+        89: aload_0
+        90: bipush        21
+        92: invokevirtual #25                 // Method Search:(I)Z
+        95: ifeq          108
+        98: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       101: iconst_1
+       102: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+       105: goto          115
+       108: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       111: iconst_0
+       112: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+       115: aload_0
+       116: bipush        37
+       118: invokevirtual #25                 // Method Search:(I)Z
+       121: ifeq          134
+       124: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       127: iconst_1
+       128: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+       131: goto          141
+       134: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       137: iconst_0
+       138: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+       141: aload_0
+       142: bipush        38
+       144: invokevirtual #25                 // Method Search:(I)Z
+       147: ifeq          160
+       150: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       153: iconst_1
+       154: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+       157: goto          167
+       160: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       163: iconst_0
+       164: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+       167: aload_0
+       168: bipush        39
+       170: invokevirtual #25                 // Method Search:(I)Z
+       173: ifeq          186
+       176: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       179: iconst_1
+       180: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+       183: goto          193
+       186: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       189: iconst_0
+       190: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+       193: aload_0
+       194: bipush        50
+       196: invokevirtual #25                 // Method Search:(I)Z
+       199: ifeq          212
+       202: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       205: iconst_1
+       206: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+       209: goto          219
+       212: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+       215: iconst_0
+       216: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+       219: sipush        999
+       222: ireturn
+      StackMap: number_of_entries = 16
+        frame_type = 255 offset = 30
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 37
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 56
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 63
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 82
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 89
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 108
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 115
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 134
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 141
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 160
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 167
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 186
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 193
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 212
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 219
+          locals = [ class BS, int, int, int ]
+          stack = []
+
+  public boolean Search(int);
+    descriptor: (I)Z
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=9, args_size=2
+         0: iconst_0
+         1: istore        7
+         3: iconst_0
+         4: istore_2
+         5: aload_0
+         6: getfield      #39                 // Field number:[I
+         9: arraylength
+        10: istore_3
+        11: iload_3
+        12: iconst_1
+        13: isub
+        14: istore_3
+        15: iconst_0
+        16: istore        4
+        18: iconst_1
+        19: istore        5
+        21: iload         5
+        23: ifeq          122
+        26: iload         4
+        28: iload_3
+        29: iadd
+        30: istore        6
+        32: aload_0
+        33: iload         6
+        35: invokevirtual #42                 // Method Div:(I)I
+        38: istore        6
+        40: aload_0
+        41: getfield      #39                 // Field number:[I
+        44: iload         6
+        46: iaload
+        47: istore        7
+        49: iload_1
+        50: iload         7
+        52: if_icmplt     59
+        55: iconst_0
+        56: goto          60
+        59: iconst_1
+        60: ifeq          71
+        63: iload         6
+        65: iconst_1
+        66: isub
+        67: istore_3
+        68: goto          77
+        71: iload         6
+        73: iconst_1
+        74: iadd
+        75: istore        4
+        77: aload_0
+        78: iload         7
+        80: iload_1
+        81: invokevirtual #46                 // Method Compare:(II)Z
+        84: ifeq          93
+        87: iconst_0
+        88: istore        5
+        90: goto          96
+        93: iconst_1
+        94: istore        5
+        96: iload_3
+        97: iload         4
+        99: if_icmplt     106
+       102: iconst_0
+       103: goto          107
+       106: iconst_1
+       107: ifeq          116
+       110: iconst_0
+       111: istore        5
+       113: goto          119
+       116: iconst_0
+       117: istore        8
+       119: goto          21
+       122: aload_0
+       123: iload         7
+       125: iload_1
+       126: invokevirtual #46                 // Method Compare:(II)Z
+       129: ifeq          137
+       132: iconst_1
+       133: istore_2
+       134: goto          139
+       137: iconst_0
+       138: istore_2
+       139: iload_2
+       140: ireturn
+      StackMap: number_of_entries = 14
+        frame_type = 255 offset = 21
+          locals = [ class BS, int, int, int, int, int, top, int ]
+          stack = []
+        frame_type = 255 offset = 59
+          locals = [ class BS, int, int, int, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 60
+          locals = [ class BS, int, int, int, int, int, int, int ]
+          stack = [ int ]
+        frame_type = 255 offset = 71
+          locals = [ class BS, int, int, int, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 77
+          locals = [ class BS, int, int, int, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 93
+          locals = [ class BS, int, int, int, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 96
+          locals = [ class BS, int, int, int, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 106
+          locals = [ class BS, int, int, int, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 107
+          locals = [ class BS, int, int, int, int, int, int, int ]
+          stack = [ int ]
+        frame_type = 255 offset = 116
+          locals = [ class BS, int, int, int, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 119
+          locals = [ class BS, int, int, int, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 122
+          locals = [ class BS, int, int, int, int, int, top, int ]
+          stack = []
+        frame_type = 255 offset = 137
+          locals = [ class BS, int, int, int, int, int, top, int ]
+          stack = []
+        frame_type = 255 offset = 139
+          locals = [ class BS, int, int, int, int, int, top, int ]
+          stack = []
+
+  public int Div(int);
+    descriptor: (I)I
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=5, args_size=2
+         0: iconst_0
+         1: istore_2
+         2: iconst_0
+         3: istore_3
+         4: iload_1
+         5: iconst_1
+         6: isub
+         7: istore        4
+         9: iload_3
+        10: iload         4
+        12: if_icmplt     19
+        15: iconst_0
+        16: goto          20
+        19: iconst_1
+        20: ifeq          34
+        23: iload_2
+        24: iconst_1
+        25: iadd
+        26: istore_2
+        27: iload_3
+        28: iconst_2
+        29: iadd
+        30: istore_3
+        31: goto          9
+        34: iload_2
+        35: ireturn
+      StackMap: number_of_entries = 4
+        frame_type = 255 offset = 9
+          locals = [ class BS, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 19
+          locals = [ class BS, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 20
+          locals = [ class BS, int, int, int, int ]
+          stack = [ int ]
+        frame_type = 255 offset = 34
+          locals = [ class BS, int, int, int, int ]
+          stack = []
+
+  public boolean Compare(int, int);
+    descriptor: (II)Z
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=5, args_size=3
+         0: iconst_0
+         1: istore_3
+         2: iload_2
+         3: iconst_1
+         4: iadd
+         5: istore        4
+         7: iload_1
+         8: iload_2
+         9: if_icmplt     16
+        12: iconst_0
+        13: goto          17
+        16: iconst_1
+        17: ifeq          25
+        20: iconst_0
+        21: istore_3
+        22: goto          48
+        25: iload_1
+        26: iload         4
+        28: if_icmplt     35
+        31: iconst_0
+        32: goto          36
+        35: iconst_1
+        36: iconst_1
+        37: ixor
+        38: ifeq          46
+        41: iconst_0
+        42: istore_3
+        43: goto          48
+        46: iconst_1
+        47: istore_3
+        48: iload_3
+        49: ireturn
+      StackMap: number_of_entries = 7
+        frame_type = 255 offset = 16
+          locals = [ class BS, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 17
+          locals = [ class BS, int, int, int, int ]
+          stack = [ int ]
+        frame_type = 255 offset = 25
+          locals = [ class BS, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 35
+          locals = [ class BS, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 36
+          locals = [ class BS, int, int, int, int ]
+          stack = [ int ]
+        frame_type = 255 offset = 46
+          locals = [ class BS, int, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 48
+          locals = [ class BS, int, int, int, int ]
+          stack = []
+
+  public int Print();
+    descriptor: ()I
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=2, args_size=1
+         0: iconst_1
+         1: istore_1
+         2: iload_1
+         3: aload_0
+         4: getfield      #48                 // Field size:I
+         7: if_icmplt     14
+        10: iconst_0
+        11: goto          15
+        14: iconst_1
+        15: ifeq          37
+        18: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        21: aload_0
+        22: getfield      #39                 // Field number:[I
+        25: iload_1
+        26: iaload
+        27: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+        30: iload_1
+        31: iconst_1
+        32: iadd
+        33: istore_1
+        34: goto          2
+        37: getstatic     #31                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        40: ldc           #49                 // int 99999
+        42: invokevirtual #37                 // Method java/io/PrintStream.println:(I)V
+        45: iconst_0
+        46: ireturn
+      StackMap: number_of_entries = 4
+        frame_type = 255 offset = 2
+          locals = [ class BS, int ]
+          stack = []
+        frame_type = 255 offset = 14
+          locals = [ class BS, int ]
+          stack = []
+        frame_type = 255 offset = 15
+          locals = [ class BS, int ]
+          stack = [ int ]
+        frame_type = 255 offset = 37
+          locals = [ class BS, int ]
+          stack = []
+
+  public int Init(int);
+    descriptor: (I)I
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=6, args_size=2
+         0: aload_0
+         1: iload_1
+         2: putfield      #48                 // Field size:I
+         5: aload_0
+         6: iload_1
+         7: newarray       int
+         9: putfield      #39                 // Field number:[I
+        12: iconst_1
+        13: istore_2
+        14: aload_0
+        15: getfield      #48                 // Field size:I
+        18: iconst_1
+        19: iadd
+        20: istore_3
+        21: iload_2
+        22: aload_0
+        23: getfield      #48                 // Field size:I
+        26: if_icmplt     33
+        29: iconst_0
+        30: goto          34
+        33: iconst_1
+        34: ifeq          69
+        37: iconst_2
+        38: iload_2
+        39: imul
+        40: istore        5
+        42: iload_3
+        43: iconst_3
+        44: isub
+        45: istore        4
+        47: aload_0
+        48: getfield      #39                 // Field number:[I
+        51: iload_2
+        52: iload         5
+        54: iload         4
+        56: iadd
+        57: iastore
+        58: iload_2
+        59: iconst_1
+        60: iadd
+        61: istore_2
+        62: iload_3
+        63: iconst_1
+        64: isub
+        65: istore_3
+        66: goto          21
+        69: iconst_0
+        70: ireturn
+      StackMap: number_of_entries = 4
+        frame_type = 255 offset = 21
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 33
+          locals = [ class BS, int, int, int ]
+          stack = []
+        frame_type = 255 offset = 34
+          locals = [ class BS, int, int, int ]
+          stack = [ int ]
+        frame_type = 255 offset = 69
+          locals = [ class BS, int, int, int ]
+          stack = []
+}

@@ -2,17 +2,16 @@ package MiniJava;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ParseTreeProperty;
-
 import java.util.*;
 
-public class AssignmentListener extends MiniJavaBaseListener {
-    MiniJavaParser parser;
-    final Map<String, Klass> klasses;
-    ParseTreeProperty<Scope> scopes;
-    Scope currentScope = null;
-    boolean isField;
+class AssignmentListener extends MiniJavaBaseListener {
+    private MiniJavaParser parser;
+    private final Map<String, Klass> klasses;
+    private ParseTreeProperty<Scope> scopes;
+    private Scope currentScope = null;
+    private boolean isField;
 
-    public AssignmentListener(final Map<String, Klass> klasses, ParseTreeProperty<Scope> scopes, MiniJavaParser parser) {
+    AssignmentListener(final Map<String, Klass> klasses, ParseTreeProperty<Scope> scopes, MiniJavaParser parser) {
         this.scopes = scopes;
         this.klasses = klasses;
         this.parser = parser;
@@ -72,7 +71,7 @@ public class AssignmentListener extends MiniJavaBaseListener {
         if (currentScope.lookupLocally(varName) != null) {
             ErrorStrategy.reportSymbolAlreadyDefinedError(parser, ctx.Identifier().getSymbol(), "variable", varName, currentScope.getScopeName());
         }
-        currentScope.defineSymbolInCurrentScope(new Symbol(varName, klasses.get(typeName), isField));
+        currentScope.define(new Symbol(varName, klasses.get(typeName), isField));
     }
 
     @Override
@@ -91,7 +90,7 @@ public class AssignmentListener extends MiniJavaBaseListener {
         }
         Scope owner = currentScope;
         Method method = new Method(returnType, methodName, owner);
-        currentScope.defineSymbolInCurrentScope(method);
+        currentScope.define(method);
         currentScope = method;
         saveScope(ctx, currentScope);
     }

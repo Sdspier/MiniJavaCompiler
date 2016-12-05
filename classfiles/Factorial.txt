@@ -1,0 +1,62 @@
+Classfile /C:/Users/Steve/IdeaProjects/MiniJavaCompiler/classfiles/Factorial.class
+  Last modified Dec 5, 2016; size 359 bytes
+  MD5 checksum 10d688fc7b000771c1490905064af8b3
+public class Factorial
+  minor version: 3
+  major version: 45
+  flags: ACC_PUBLIC
+Constant pool:
+   #1 = Utf8               Factorial
+   #2 = Class              #1             // Factorial
+   #3 = Utf8               java/lang/Object
+   #4 = Class              #3             // java/lang/Object
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = NameAndType        #5:#6          // "<init>":()V
+   #8 = Methodref          #4.#7          // java/lang/Object."<init>":()V
+   #9 = Utf8               main
+  #10 = Utf8               ([Ljava/lang/String;)V
+  #11 = Utf8               java/lang/System
+  #12 = Class              #11            // java/lang/System
+  #13 = Utf8               out
+  #14 = Utf8               Ljava/io/PrintStream;
+  #15 = NameAndType        #13:#14        // out:Ljava/io/PrintStream;
+  #16 = Fieldref           #12.#15        // java/lang/System.out:Ljava/io/PrintStream;
+  #17 = Utf8               Fac
+  #18 = Class              #17            // Fac
+  #19 = Methodref          #18.#7         // Fac."<init>":()V
+  #20 = Utf8               ComputeFac
+  #21 = Utf8               (I)I
+  #22 = NameAndType        #20:#21        // ComputeFac:(I)I
+  #23 = Methodref          #18.#22        // Fac.ComputeFac:(I)I
+  #24 = Utf8               java/io/PrintStream
+  #25 = Class              #24            // java/io/PrintStream
+  #26 = Utf8               println
+  #27 = Utf8               (I)V
+  #28 = NameAndType        #26:#27        // println:(I)V
+  #29 = Methodref          #25.#28        // java/io/PrintStream.println:(I)V
+  #30 = Utf8               Code
+{
+  public Factorial();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #8                  // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=1, args_size=1
+         0: getstatic     #16                 // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: new           #18                 // class Fac
+         6: dup
+         7: invokespecial #19                 // Method Fac."<init>":()V
+        10: bipush        10
+        12: invokevirtual #23                 // Method Fac.ComputeFac:(I)I
+        15: invokevirtual #29                 // Method java/io/PrintStream.println:(I)V
+        18: return
+}

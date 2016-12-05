@@ -11,11 +11,11 @@ public interface Scope {
 
     Scope getEnclosingScope();
 
-    void defineSymbolInCurrentScope(Symbol sym);
+    void define(Symbol sym);
 
     void initialize(Symbol sym);
 
-    Symbol lookUpNameInContainingScope(String name);
+    Symbol lookup(String name);
 
     Symbol lookupLocally(String name);
 

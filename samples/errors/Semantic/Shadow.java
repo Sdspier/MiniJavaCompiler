@@ -13,6 +13,24 @@ class A {
 
 class B extends A {
     int x;
+	int c;
+	int d;
+	
+	public enum flags { 
+		flag1, flag2, flag3, flag4 
+	}
+	
+	public int cv(B b){
+		return 0;
+	}
+	
+	public int tester(){
+		c = this.cv(new A());
+		d = this.cv(new B());
+		return 0;	
+	}
+	
+	
 
     public boolean f()      { return true; }
     public int g(boolean x) { return 0; }

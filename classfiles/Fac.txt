@@ -1,0 +1,71 @@
+Classfile /C:/Users/Steve/IdeaProjects/MiniJavaCompiler/classfiles/Fac.class
+  Last modified Dec 5, 2016; size 265 bytes
+  MD5 checksum dd0ae219441d960190e99bd339b2b4b3
+public class Fac
+  minor version: 3
+  major version: 45
+  flags: ACC_PUBLIC
+Constant pool:
+   #1 = Utf8               Fac
+   #2 = Class              #1             // Fac
+   #3 = Utf8               java/lang/Object
+   #4 = Class              #3             // java/lang/Object
+   #5 = Utf8               <init>
+   #6 = Utf8               ()V
+   #7 = NameAndType        #5:#6          // "<init>":()V
+   #8 = Methodref          #4.#7          // java/lang/Object."<init>":()V
+   #9 = Utf8               ComputeFac
+  #10 = Utf8               (I)I
+  #11 = NameAndType        #9:#10         // ComputeFac:(I)I
+  #12 = Methodref          #2.#11         // Fac.ComputeFac:(I)I
+  #13 = Utf8               Code
+  #14 = Utf8               StackMap
+{
+  public Fac();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #8                  // Method java/lang/Object."<init>":()V
+         4: return
+
+  public int ComputeFac(int);
+    descriptor: (I)I
+    flags: ACC_PUBLIC
+    Code:
+      stack=4, locals=3, args_size=2
+         0: iload_1
+         1: iconst_1
+         2: if_icmplt     9
+         5: iconst_0
+         6: goto          10
+         9: iconst_1
+        10: ifeq          18
+        13: iconst_1
+        14: istore_2
+        15: goto          28
+        18: iload_1
+        19: aload_0
+        20: iload_1
+        21: iconst_1
+        22: isub
+        23: invokevirtual #12                 // Method ComputeFac:(I)I
+        26: imul
+        27: istore_2
+        28: iload_2
+        29: ireturn
+      StackMap: number_of_entries = 4
+        frame_type = 255 offset = 9
+          locals = [ class Fac, int ]
+          stack = []
+        frame_type = 255 offset = 10
+          locals = [ class Fac, int ]
+          stack = [ int ]
+        frame_type = 255 offset = 18
+          locals = [ class Fac, int ]
+          stack = []
+        frame_type = 255 offset = 28
+          locals = [ class Fac, int, int ]
+          stack = []
+}
